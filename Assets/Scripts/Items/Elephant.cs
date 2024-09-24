@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using Utils;
+using UnityEngine;
 
 namespace Items
 {
-    public class Elephant : IItemable
+    [CreateAssetMenu(menuName = "Item/Elephant")]
+    public class Elephant : ScriptableObject, IItem
     {
         public ItemInformation ItemText { get; } = new ItemInformation("코끼리", "냉장고에 넣어보자");
 

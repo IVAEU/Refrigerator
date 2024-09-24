@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Items;
 using UnityEngine;
+using Utils;
+
+
+
 
 public class Human : MonoBehaviour
 {
@@ -17,33 +21,30 @@ public class Human : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            _refrigerator.AddItem(new Sword());
+            _refrigerator.AddItem(ScriptableObject.CreateInstance<Sword>());
         }
         
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            _refrigerator.AddItem(new Elephant());
+            _refrigerator.AddItem(ScriptableObject.CreateInstance<Elephant>());
         }
         
         if (Input.GetKeyDown(KeyCode.P))
         {
             foreach (var item in _refrigerator.ItemContain)
             {
-                string itemStr = "[";
-                itemStr += item.ItemData.ItemText.ItemName;
-                itemStr += "]: ";
-                itemStr += item.ItemData.ItemText.ItemDescription;
-                itemStr += " (";
-                itemStr += item.Count;
-                itemStr += "/";
-                itemStr += item.ItemData.MaxStack;
-                itemStr += ")\n";
+                string str =
+                    $"[{item.ItemData.ItemText.ItemName}]: " +
+                    $"{item.ItemData.ItemText.ItemDescription} " +
+                    $"({item.Count}/{item.ItemData.MaxStack})\n";
                 
                 foreach (var itemData in item.ItemData.ItemData)
                 {
-                    itemStr += itemData.Key + ": " + itemData.Value.VariableValue;
+                    str += $"|{itemData.Key}:{itemData.Value.VariableValue}";
                 }
-                Debug.Log(itemStr);
+
+                str += "|";
+                Debug.Log(str);
             }
         }
     }

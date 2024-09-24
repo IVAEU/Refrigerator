@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using Utils;
+using UnityEngine;
 
 namespace Items
 {
-    public class Sword : IItemable
+    [CreateAssetMenu(menuName = "Item/Sword")]
+    public class Sword : ScriptableObject, IItem
     {
         public ItemInformation ItemText { get; } = new ItemInformation("전설의 검", "전설적인 용사가 사용했던 검이다.");
         

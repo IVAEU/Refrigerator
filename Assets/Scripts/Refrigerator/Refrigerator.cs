@@ -7,7 +7,7 @@ public class Refrigerator
 {
     public readonly List<ContainData> ItemContain = new();
 
-    private bool ContainsItem(IItemable inputItem, out List<ContainData> outputItems)
+    private bool ContainsItem(IItem inputItem, out List<ContainData> outputItems)
     {
         outputItems = new List<ContainData>();
         foreach (ContainData containItem in ItemContain)
@@ -21,13 +21,13 @@ public class Refrigerator
         return outputItems.Count > 0;
     }
     
-    public int GetItemCount<T>(T item) where T : IItemable
+    public int GetItemCount<T>(T item) where T : IItem
     {
         ContainsItem(item, out List<ContainData> data);
         return data.Count;
     }
 
-    public T AddItem<T>(T item) where T : IItemable
+    public T AddItem<T>(T item) where T : IItem
     {
         if (ContainsItem(item, out List<ContainData> data))
         {
@@ -45,7 +45,7 @@ public class Refrigerator
         return item;
     }
     
-    public T RemoveItem<T>(T item) where T : IItemable
+    public T RemoveItem<T>(T item) where T : IItem
     {
         if (ContainsItem(item, out List<ContainData> data))
         {

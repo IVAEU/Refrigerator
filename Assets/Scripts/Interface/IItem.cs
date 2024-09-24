@@ -13,7 +13,7 @@ public struct ItemInformation
     }
 }
 
-public interface IItemable
+public interface IItem
 {
     public ItemInformation ItemText
     {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 public class ContainData
 {
-    public IItemable ItemData;
+    public IItem ItemData;
     public int Count;
 
-    public ContainData(IItemable item, int c)
+    public ContainData(IItem item, int c)
     {
         ItemData = item;
         Count = c;
