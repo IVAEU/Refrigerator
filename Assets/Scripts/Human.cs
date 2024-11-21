@@ -26,7 +26,7 @@ public class Human : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            _refrigerator.AddItem(ScriptableObject.CreateInstance<Elephant>());
+             _refrigerator.AddItem(ScriptableObject.CreateInstance<Elephant>());
         }
         
         if (Input.GetKeyDown(KeyCode.P))
